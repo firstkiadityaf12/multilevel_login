@@ -22,7 +22,7 @@ module.exports = {
     },
     // controller GET by ID
     controllerGetId:(req,res)=>{
-        const param = { id: req.params.id}
+        const param = { user_id: req.params.user_id}
         user.findOne({where:param})
         .then(result => {
             res.json({
@@ -55,7 +55,7 @@ module.exports = {
     },
     // controller EDIT
     controllerEdit:(req,res)=>{
-        const param = { id: req.body.id}
+        const param = { user_id: req.body.user_id}
         const data = {
             id: req.body.id,
             username : req.body.username,
@@ -78,7 +78,7 @@ module.exports = {
     },
     // controller DELETE
     controllerDelete: (req,res)=>{
-        const param = { id: req.body.id}
+        const param = { user_id: req.body.user_id}
         user.destroy({where: param})
         .then(result => {
             res.json({
